@@ -1,17 +1,21 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class operacao{
     public static void main(String[] args) {
+        int continuar = 0;
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Quer dar inicio? 1 para sim e 2 para não\n");
-        int res = scanner.nextInt();
+        System.out.println("Digite qualquer comando para prosseguir ou 'close' para encerrar\n");
+        String res = scanner.next();
         
-        if(res !=1){
+        if(res.equalsIgnoreCase ("close")){
           scanner.close();
-          System.exit(res);  
+          System.exit(0);
+          continuar = 1;  
         }
 
         do{
+            
             System.out.print("Insira um dividendo: ");
             int dividendo = scanner.nextInt();
             System.out.print("Insira um divisor: ");
@@ -20,13 +24,20 @@ public class operacao{
                     int resul = dividendo / divisor;
                     System.out.println("O resultado da operação é: " + resul);
                     System.out.println("Continuar? ");
-                    res = scanner.nextInt();
+                    res = scanner.next();
+                    
+                if(res.equalsIgnoreCase ("close")){
+                    System.exit(0);
+                }
 
                     
-               }catch(ArithmeticException e){
-                System.out.println("Não pode ser divido por zero");
-               }
-        } while(res == 1);
+                    }   catch(ArithmeticException e){
+                            System.out.println("Não pode ser divido por zero");
+                        }
+                        catch(InputMismatchException e){
+                            System.out.println("Insira apenas números.");
+                        }
+        } while(continuar == 0);
             scanner.close();
     }
 }
