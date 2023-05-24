@@ -28,14 +28,15 @@ public class operacao{
                     
                 if(res.equalsIgnoreCase ("close")){
                     System.exit(0);
-                }
+                    }
 
                     
-                    }   catch(ArithmeticException e){
-                            System.out.println("Não pode ser divido por zero");
-                        }
+                }   
                         catch(InputMismatchException e){
                             System.out.println("Insira apenas números.");
+                        }
+                        catch(ArithmeticException e){
+                            System.out.println("Não pode ser divido por zero");
                         }
         } while(continuar == 0);
             scanner.close();
