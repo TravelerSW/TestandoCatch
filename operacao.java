@@ -12,9 +12,9 @@ public class operacao{
         }
 
         do{
-            System.out.println("Insira um dividendo: ");
+            System.out.print("Insira um dividendo: ");
             int dividendo = scanner.nextInt();
-            System.out.println("Insira um divisor");
+            System.out.print("Insira um divisor: ");
             int divisor = scanner.nextInt();
                try{ 
                     int resul = dividendo / divisor;
@@ -27,6 +27,6 @@ public class operacao{
                 System.out.println("Não pode ser divido por zero");
                }
         } while(res == 1);
-
+            scanner.close();
     }
 }
